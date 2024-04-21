@@ -6,4 +6,4 @@ http.createServer( function ( req, res ) {
 	res.end();
 } ).listen( PORT );
 
-console.log( `~~ server is running on ${ PORT }` );
+console.log( `~~ server is running on ${ PORT } ~~` );
