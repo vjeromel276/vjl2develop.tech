@@ -2,7 +2,8 @@ const http = require( 'http' );
 const PORT = 3000;
 
 http.createServer( function ( req, res ) {
-	res.write( "On our way to being a full stack engineer" );
+	res.writeHead( 200, { 'Content-Type': 'text/html' } );
+	res.write( "<h1>On our way to being a full stack engineer</h1>" );
 	res.end();
 } ).listen( PORT );
 
