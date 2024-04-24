@@ -1,11 +1,13 @@
-const http = require( 'http' );
-const fs = require( 'fs' );
-const PORT = 3000;
+const express = require( 'express' );
+const server = require( 'http' ).createServer();
 
-http.createServer( function ( req, res ) {
-	res.writeHead( 200, { 'Content-Type': 'text/html' } );
-	res.write( "<h1>On our way to being a full stack engineer</h1>" );
-	res.end();
-} ).listen( PORT );
+const app = express();
 
-console.log( `~~ server is running on ${ PORT } ~~` );
+app.get( '/', ( req, res ) => {
+	res.sendFile( 'index.html', { root: __dirname } );
+} );
+
+server.on( 'request', app );
+server.listen( 3000, () => {
+	console.log( 'Server started on http://localhost:3000' );
+} );
